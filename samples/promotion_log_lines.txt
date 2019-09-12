@@ -1,0 +1,6 @@
+2019-08-22 22:06:31 GMT [80719]: [6-1] user=,db=,client= LOG:  received promote request
+2019-08-22 22:06:31 GMT [81351]: [2-1] user=,db=,client= FATAL:  terminating walreceiver process due to administrator command
+2019-08-22 22:06:31 GMT [80719]: [7-1] user=,db=,client= LOG:  invalid record length at 3583/A6D4B9A0: wanted 24, got 0
+2019-08-22 22:06:31 GMT [80719]: [8-1] user=,db=,client= LOG:  redo done at 3583/A6D4B960
+2019-08-22 22:06:31 GMT [80719]: [9-1] user=,db=,client= LOG:  last completed transaction was at log time 2019-08-22 22:06:31.775485+00
+2019-08-22 22:06:31 GMT [80719]: [10-1] user=,db=,client= LOG:  selected new timeline ID: 6
