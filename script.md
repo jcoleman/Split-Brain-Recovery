@@ -1,7 +1,12 @@
 `pg_waldump` demo
 ---
 
+Note: when presenting use extra tmux session so that presenter display can interact without needing to move over to the presentation display.
+
 1. Boot up docker.
+
+    ./scripts/boot.sh
+
 2. Load tables.
 3. Start long-running transaction.
 4. Walk through how to read `pg_waldump` output.
@@ -22,12 +27,17 @@
     psql -h localhost -U postgres -d demo -c "insert into items(name) values('zag');"
     psql -h localhost -U postgres -d demo -c "update items set name = 'zog' where name = 'zip';"
 
+    # Note to audience that we should remember these rows and their changes since
+    # if all goes well we should see them again.
     psql -h localhost -U postgres -d demo -c "select pk, name from items order by pk;"
 
 6. How do we figure out the diversion point?
 7. Talk through custom scripting.
 
+    # On "replica":
     sudo -u postgres -E /usr/lib/postgresql/11/bin/pg_ctl stop
+
+    cd /
 
     # Handle partial segments.
     sudo -u postgres mv /var/lib/postgresql/data/pg_wal/000000010000000000000004.partial /var/lib/postgresql/data/pg_wal/000000010000000000000004
