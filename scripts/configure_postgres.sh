@@ -55,10 +55,6 @@ if [ -n "$REPLICATION_HOST" ]; then
   ls -lah /dev/null
   /wait_for_psql.sh $REPLICATION_HOST 5432
 
-  # TODO: Right now this isn't guaranteed to work since we
-  # don't know if the other host is up yet. But docker compose
-  # conveniently restarts the container when this fails...so
-  # for now that is our "retry".
   pg_basebackup -h $REPLICATION_HOST -U postgres -D $PGDATA/ --wal-method=stream
 
 
