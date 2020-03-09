@@ -7,11 +7,12 @@ This talk is designed with a slide deck wrapped around four live demo sessions.T
 
 The slide deck is in Apple's Keynote.
 
-The live demo tmux setup can be launched like so:
+The live demo tmux setup (which uses Docker to run multiple containers) can be launched like so:
 
 1. Open a Terminal and launch tmux (to be used on the presentation display).
-2. Run [`scripts/boot.sh`](scripts/boot.sh).
-3. Open another Terminal window and attach to the tmux session (for use on the presenter's display).
+2. Run `make build` to build the Docker image used by this project.
+3. Run [`scripts/boot.sh`](scripts/boot.sh).
+4. Open another Terminal window and attach to the tmux session (for use on the presenter's display).
 
 ## Live Demo Script
 
