@@ -50,17 +50,18 @@ The live demo tmux setup (which uses Docker to run multiple containers) can be l
 
     less /var/lib/postgresql/data/log/postgresql.log
 
-2.  Stop server:
+2. Stop server:
 
     # On "replica":
     sudo -u postgres -E /usr/lib/postgresql/11/bin/pg_ctl stop
 
     cd /
 
-3.  Handle partial segments:
+3. Handle partial segments:
+
     sudo -u postgres mv /var/lib/postgresql/data/pg_wal/000000010000000000000004.partial /var/lib/postgresql/data/pg_wal/000000010000000000000004
 
-4.  Capture all WAL ops done in a fuzzy window before and after the promotion:
+4. Capture all WAL ops done in a fuzzy window before and after the promotion:
 
     # pg_waldump can't follow timeline switches, so we have to do two steps here.
     pg_waldump --path /var/lib/postgresql/data/pg_wal 000000010000000000000003 000000010000000000000004 > fuzzy_window.txt
